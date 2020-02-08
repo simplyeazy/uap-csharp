@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard1.3;netstandard1.6;net20</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;netstandard1.3;netstandard1.6;net20;netcoreapp2.0;net35;net40;net45</TargetFrameworks>
     <PackageId>UAParser</PackageId>
     <Authors>enemaerke</Authors>
     <Title>User Agent Parser for .Net</Title>
     <Description>Parsing useragent string. A .Net wrapper for the ua-parser library and its set of regular expressions</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Copyright>Copyright 2018</Copyright>
+    <Copyright>Copyright 2019</Copyright>
     <PackageTags>UAParser .Net UserAgent Parsing User Agent Parser</PackageTags>
     <AssemblyName>UAParser</AssemblyName>
     <RootNamespace>UAParser</RootNamespace>
@@ -26,19 +26,35 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard1.0'">
-    <DefineConstants>INTROSPECTION_EXTENSIONS</DefineConstants>
+    <DefineConstants>INTROSPECTION_EXTENSIONS;REGEX_MATCHTIMEOUT</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard1.3'">
-    <DefineConstants>REGEX_COMPILATION;INTROSPECTION_EXTENSIONS</DefineConstants>
+    <DefineConstants>REGEX_COMPILATION;INTROSPECTION_EXTENSIONS;REGEX_MATCHTIMEOUT</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard1.6'">
-    <DefineConstants>REGEX_COMPILATION;INTROSPECTION_EXTENSIONS</DefineConstants>
+    <DefineConstants>REGEX_COMPILATION;INTROSPECTION_EXTENSIONS;REGEX_MATCHTIMEOUT</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net20'">
     <DefineConstants>REGEX_COMPILATION</DefineConstants>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
+    <DefineConstants>REGEX_COMPILATION;INTROSPECTION_EXTENSIONS;REGEX_MATCHTIMEOUT</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net35'">
+    <DefineConstants>REGEX_COMPILATION</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net40'">
+    <DefineConstants>REGEX_COMPILATION</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+    <DefineConstants>REGEX_COMPILATION;REGEX_MATCHTIMEOUT</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
